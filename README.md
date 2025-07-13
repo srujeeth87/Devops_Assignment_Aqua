@@ -94,11 +94,17 @@ Steps:
 - Push to Docker Hub
 - Run health check
 - Cleanup in post stage
-- Ensure Jenkins agent:
 
-Has Docker installed
-Uses valid Docker Hub credentials via withCredentials
+Ensure Jenkins agent:
+ ->Has Docker installed
+ ->Uses valid Docker Hub credentials via withCredentials
 
+--------
+
+Secrets and Configuration
+
+API_KEY for exchangerate.host should be passed via environment variable in the code .
+Docker Hub credentials managed via Jenkins credentials store.
 
 
 
