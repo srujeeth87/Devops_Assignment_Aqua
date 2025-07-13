@@ -1,7 +1,12 @@
 //@Library('Jenkins') _
 
 pipeline {
-  agent any
+  agent {
+        docker {
+            image 'docker:24.0.6-cli'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
   environment {
        IMAGE_NAME = 'srujeeth47/http-echo-test'
      }
