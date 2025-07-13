@@ -21,7 +21,7 @@ pipeline {
   post {
 
     always {
-      Echo "Cleaning up ---"
+      Echo " Cleaning up ..."
       sh 'docker rm -f http-echo || true'
       sh 'docker rmi $IMAGE_NAME|| true'
     }
