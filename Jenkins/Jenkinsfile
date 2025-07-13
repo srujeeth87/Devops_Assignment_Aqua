@@ -1,4 +1,4 @@
-//@Library('Jenkins') _
+@Library('Jenkins') _
 
 pipeline {
   agent any
@@ -12,10 +12,10 @@ pipeline {
 	     }		
     }
     stage('Build & Push Image') {
-      steps { dockerUtils.buildAndPushDockerImage(IMAGE_NAME) }
+      steps { buildAndPushDockerImage(IMAGE_NAME) }
     }
     stage('Run & Health Check') {
-      steps { dockerUtils..runHealthcheck(IMAGE_NAME) }
+      steps { runHealthcheck(IMAGE_NAME) }
     }
   }
   post {
