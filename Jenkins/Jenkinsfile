@@ -2,7 +2,7 @@
 
 pipeline {
   agent any
-  Environment {
+  environment {
        IMAGE_NAME = 'srujeeth47/http-echo-test'
      }
   stages {
