@@ -1,0 +1,29 @@
+@Library('jenkins-shared-lib') _
+
+pipeline {
+  agent any
+  Environment {
+       IMAGE_NAME = 'srujeeth47/http-echo-test'
+     }
+  stages {
+    stage('Checkout') {
+      steps { 
+         git url: 'https://github.com/hashicorp/http-echo.git'
+	     }		
+    }
+    stage('Build & Push Image') {
+      steps { buildAndPushDockerImage(IMAGE_NAME) }
+    }
+    stage('Run & Health Check') {
+      steps { runHealthcheck(IMAGE_NAME) }
+    }
+  }
+  post {
+
+    always {
+      Echo "Cleaning up ---"
+      sh 'docker rm -f http-echo || true'
+      sh 'docker rmi $IMAGE_NAME|| true'
+    }
+  }
+}
