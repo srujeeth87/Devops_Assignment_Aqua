@@ -13,28 +13,19 @@ pipeline {
 	     }		
     }
     stage('Build & Push Image') {
-      steps { 
-           withCredentials([usernamePassword(credentialsId: '4a0089bb-e1b8-4ded-8f6a-3562c48483b1', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) 
-           {
-        sh """
-            echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin 
-        docker build -t ${IMAGE_NAME} .
-        docker tag ${IMAGE_NAME} ${IMAGE_NAME}
-        docker push ${IMAGE_NAME}
-             """
-           }
-	     }
-
-    }
-    stage('Run & Health Check') {
-      steps { 
- 	     sh """
-        docker run -d --name http-echo -p 5678:5678 ${IMAGE_NAME}
-        sleep 5
-        curl -f http://localhost:5678 || echo 'Healthcheck failed'
-    """
-     }
-    }
+            steps {
+                script {
+                    dockerUtils.buildAndPushDockerImage(env.IMAGE_NAME)
+                }
+            }
+        }
+        stage('Run & Health Check') {
+            steps {
+                script {
+                    dockerUtils.runHealthcheck(env.IMAGE_NAME)
+                }
+            }
+        }
   }
   post {
 
