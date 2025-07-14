@@ -33,7 +33,7 @@ docker run -d -p 8000:8000 --name converter currency-converter
 http://localhost:8000
 ```
 
-Deployment Using Helm
+## Deployment Using Helm
 
 -Firstly install helm on the kubernetes cluster and then execute the below: 
 
@@ -44,7 +44,7 @@ cd helm/currency-converter/
 helm install currency-converter . --values values.yaml
 ```
 
-Provisioning Infra Using Terraform (AWS)
+## Provisioning Infra Using Terraform (AWS)
 
 🔧 Prerequisites
 AWS CLI configuration (aws configure)
@@ -63,7 +63,7 @@ terraform plan -var-file="terraform.tfvars"
 terraform apply -var-file="terraform.tfvars"
 ```
 
-CI/CD Pipeline – GitHub Actions
+## CI/CD Pipeline – GitHub Actions
 
 Path: .github/workflows/pipeline.yml
 Runs on push to main branch in yaml, these Steps include:
@@ -84,7 +84,7 @@ To trigger:
 
 -------
 
-CI/CD Pipeline – Jenkins
+## CI/CD Pipeline – Jenkins
 
 Jenkinsfile provided in root
 Uses dockerUtils.groovy from vars/ in shared lib
