@@ -6,7 +6,7 @@ This project is a DevOps assignment to demonstrate end-to-end design and deploym
 
 ---
 
-## 🚧 Design Decisions
+## Design Decisions
 
 - **Language:** Python + FastAPI for quick prototyping and auto-generated documentation.
 - **UI:** Embedded within FastAPI using Jinja2 templates (no separate frontend).
@@ -18,7 +18,7 @@ This project is a DevOps assignment to demonstrate end-to-end design and deploym
 
 ---
 
-## 🏁 How to Run Locally (Docker)
+## Run it Locally (Docker)
 
 ```bash
 # Step 1: Clone the repo
@@ -33,9 +33,9 @@ docker run -d -p 8000:8000 --name converter currency-converter
 http://localhost:8000
 ```
 
-🚢 How to Deploy Using Helm
+Deployment Using Helm
 
-Ensure your kubectl context points to your Kubernetes cluster.
+-Firstly install helm on the kubernetes cluster and then execute the below: 
 
 ```bash
 cd helm/currency-converter/
@@ -44,10 +44,10 @@ cd helm/currency-converter/
 helm install currency-converter . --values values.yaml
 ```
 
-How to Provision Infra Using Terraform (AWS)
+Provisioning Infra Using Terraform (AWS)
 
 🔧 Prerequisites
-AWS CLI configured (aws configure)
+AWS CLI configuration (aws configure)
 Terraform >= 1.3 installed
 
 ```BASH
@@ -66,7 +66,7 @@ terraform apply -var-file="terraform.tfvars"
 CI/CD Pipeline – GitHub Actions
 
 Path: .github/workflows/pipeline.yml
-Runs on push to main or PR. Steps include:
+Runs on push to main branch in yaml, these Steps include:
 
 Build Docker image
 Push to Docker Hub
@@ -95,7 +95,7 @@ Steps:
 - Run health check
 - Cleanup in post stage
 
-Ensure Jenkins agent:
+Jenkins agent should have below: 
   - Has Docker installed
  - Uses valid Docker Hub credentials via withCredentials
 
