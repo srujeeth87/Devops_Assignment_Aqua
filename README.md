@@ -11,7 +11,7 @@ This project is a DevOps assignment to demonstrate end-to-end design and deploym
 - **Language:** Python + FastAPI for quick prototyping and auto-generated documentation.
 - **UI:** Embedded within FastAPI using Jinja2 templates (no separate frontend).
 - **Exchange API:** [exchangerate.host](https://exchangerate.host) with API key support.
-- **Containerization:** Docker with minimal `python:3.9-slim` base image.
+- **Containerization:** Docker with minimal `python:3.11-slim` base image.
 - **Deployment:** Helm chart used to deploy the app to an EKS (AWS) Kubernetes cluster.
 - **Infrastructure:** Terraform provisions AWS EKS, IAM roles, and Helm deployment.
 - **CI/CD:** GitHub Actions used for automated build & push. Jenkins used for Docker build/test.
