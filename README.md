@@ -86,8 +86,9 @@ To trigger:
 
 ## CI/CD Pipeline – Jenkins
 
-Jenkinsfile provided in root Uses dockerUtils.groovy from vars/ in shared lib
-Steps:
+Jenkinsfile provided in root Uses dockerUtils.groovy from vars/ in shared lib.
+
+Steps of the pipeline job which is to be built: 
 - Clone GitHub repo
 - Build Docker image
 - Push to Docker Hub
