@@ -95,8 +95,8 @@ Steps:
 - Cleanup in post stage
 
 Jenkins agent should have : 
-  - the Docker to be installed
- - and use valid Docker Hub credentials via withCredentials in Manage Jenkins Field
+  - the Docker installed
+ - and to use valid Docker Hub credentials via withCredentials in Manage Jenkins Field
 
 ---
 
