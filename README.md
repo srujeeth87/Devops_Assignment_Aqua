@@ -94,7 +94,7 @@ Steps:
 - Run health check
 - Cleanup in post stage
 
-Jenkins agent should have below: 
+Jenkins agent should have : 
   - the Docker to be installed
  - and use valid Docker Hub credentials via withCredentials in Manage Jenkins Field
 
