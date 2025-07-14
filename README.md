@@ -1,4 +1,4 @@
-# 💱 Currency Converter Microservice – DevOps Assignment
+#  Currency Converter Microservice – DevOps Assignment
 
 ## 📌 Objective
 
