@@ -86,8 +86,7 @@ To trigger:
 
 ## CI/CD Pipeline – Jenkins
 
-Jenkinsfile provided in root
-Uses dockerUtils.groovy from vars/ in shared lib
+Jenkinsfile provided in root Uses dockerUtils.groovy from vars/ in shared lib
 Steps:
 - Clone GitHub repo
 - Build Docker image
@@ -99,9 +98,9 @@ Jenkins agent should have below:
   - Has Docker installed
  - Uses valid Docker Hub credentials via withCredentials
 
---------
+---
 
-Secrets and Configuration
+##Secrets and Configuration
 
 - API_KEY for exchangerate.host should be passed via environment variable in the code.
 - Docker Hub credentials managed via Jenkins credentials store.
